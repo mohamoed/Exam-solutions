@@ -1,0 +1,335 @@
+1. part I
+-----------
+
+1 - Tuples are fixed object in list , while list are unfixed.
+
+2- break , continue and pass statements in python to deal case where you need to escape a loop fully when an external condition is triggered or when you want to bypass a section of the loop and begin the next iteration.
+
+3- self in python  used to get variables that belongs to the class
+     
+
+4-  docstring simply is a string used in python to archieve a Python module, class or even function
+
+
+5- 
+    What is(Multpli inheritance):- 
+    ----------------------------
+    When a class is derived from more than one base     class it is called multiple Inheritance. The       derived class inherits all the features of the base     case.
+
+
+    The use of multiplie inheritance in python :-
+    --------------------------------
+    when a subclass needs to combine multiple contracts     and inherit some, or all, of the implementation of     those contracts
+    
+
+    example:-
+    ---- 
+    class Class1:
+       def m(self):
+           print("In Class1")
+       
+    class Class2(Class1):
+       pass
+ 
+    class Class3(Class1):
+       def m(self):
+           print("In Class3")   
+      
+    class Class4(Class2, Class3):
+       pass      
+ 
+    obj = Class4()
+    obj.m()
+    -----
+   Output:
+
+          In Class3
+
+
+     ***********************************************
+
+part 2:-
+-----------
+
+
+1.
+
+   def countvowels(string):
+    num_vowels=0
+    for char in string:
+        if char in "aeiouAEIOU":
+           num_vowels = num_vowels+1
+    return num_vowels
+
+        -------------------------------------
+
+2.
+  
+  def recur_sum(n):
+   if n <= 1:
+       return n
+   else:
+       return n + recur_sum(n-1)
+ 
+   num = 16
+
+   if num < 0:
+      print("Enter a positive number")
+   else:
+      print("The sum is",recur_sum(num)
+
+        -------------------------------------
+
+3. 
+
+   n1 = 0
+   n2 = 1
+   term = int(input("Enter the  terms : "))
+
+   if term <=0:
+        print("*** positive number !! *** ")     
+   else:
+
+   if term ==1:
+        print(num1,end = " ")
+   else :
+        print(num1,num2,end=" ")
+        for i in range(2,term):
+            num3 = num1+num2
+            print(num3,end=" ")
+            num1 = num2
+            num2 = num3
+
+
+
+         -------------------------------------
+
+4. 
+
+    test_dict = {'a': 100, 'b': 200, 'c': 300}
+    if 200 in test_dict.values():
+         print('200 exist in this dictionary...')
+
+
+
+         -------------------------------------
+
+
+5.  can't solve , sorry
+
+
+        ----------------------------------------
+part 3.
+-------
+
+
+
+6.  Password generator 
+    ------------------
+
+
+
+   import string 
+   import random
+    
+   letters = list(string.ascii_letters)
+   digits = list(string.digits)
+   chars = list(string.punctuation)
+
+   print(" Welcome .. let's have func : ") 
+
+   def generatePassword():
+       passwordLength = input('Enter password length: ')
+    
+       while True:
+           try:
+              passwordLength = int(passwordLength)
+              if passwordLength < 8 :
+                  print("Sorry password must be at least 8 chars")
+                  passwordLength = int(input('Enter password length : '))
+            break
+        except:
+            print('Please enter numbers only ...')
+            passwordLength = int(input('Enter password length: '))
+            
+
+     
+    password = []
+    random.shuffle(letters) # 60%
+    random.shuffle(digits)  # 30%
+    random.shuffle(chars)   # 10%
+
+  
+    for i in range(round(passwordLength * .4)):    # 40%
+        password.append(letters[i])
+  
+    for i in range(round(passwordLength * .3)):    # 30%
+        password.append(digits[i])
+    
+    for i in range(round(passwordLength * .3)):     # 30%
+        password.append(chars[i])
+
+    password = "".join(password[0:])
+
+    print(f"Your password is : \n  {password}")
+
+  generatePassword()
+
+
+     -------------------------------------------------------
+
+7. 
+
+
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0" />
+	<title>Document</title>
+	<style>
+	body {
+		padding: 25px;
+		background-color: #fff;
+		color:  #2f2f2f ;
+		font-size: 25px;
+	}
+	.dark-mode {
+		background-color: #2f2f2f;
+		color: #fff;
+	}
+	.light-mode {
+		background-color:  #fff ;
+		color:  #2f2f2f ;
+	}
+	</style>
+</head>
+<body>
+	<h1 align = center>Dark mode and Light mode </h1>
+
+	<p>
+	
+	</p>
+
+	
+
+	<h3 id="DarkModetext">Dark Mode is OFF</h3>
+	<button onclick="darkMode()">Dark </button>
+	<button onclick="lightMode()">Light</button>
+	<script>
+	function darkMode() {
+		var element = document.body;
+		var content = document.getElementById("DarkModetext");
+		element.className = "dark-mode";
+		content.innerText = "Dark Mode is ON";
+	}
+	function lightMode() {
+		var element = document.body;
+		var content = document.getElementById("DarkModetext");
+		element.className = "light-mode";
+		content.innerText = "Dark Mode is OFF";
+	}
+	</script>
+</body>
+</html>
+
+
+   --------------------------------------------------------------
+
+
+part 4.
+-------
+
+1.  defualt constructor :-
+     **************************
+   
+
+      class construct:
+ 
+   
+    def __init__(self):
+        self.con = "constructor"
+ 
+    
+    def print_con(self):
+        print(self.con)
+ 
+ 
+
+obj = construct()
+ 
+
+obj.print_con()  
+
+
+
+     parameterized constructor : 
+     ****************************
+
+       class Addition:
+    first = 0
+    second = 0
+    answer = 0
+     
+   
+    def __init__(self, f, s):
+        self.first = f
+        self.second = s
+     
+    def display(self):
+        print("First number = " + str(self.first))
+        print("Second number = " + str(self.second))
+        print("Addition of two numbers = " + str(self.answer))
+ 
+    def calculate(self):
+        self.answer = self.first + self.second
+ 
+
+    obj = Addition(1000, 2000)
+ 
+
+   obj.calculate()
+ 
+
+    obj.display()
+
+
+    ----------------------------------------------------------------
+ 
+2.  
+
+ class:-
+ -------
+
+class Person:
+    "This is a person class"
+     age = 10
+
+    def greet(self):
+        print('Hello')
+
+print(Person.age)
+print(Person.greet)
+print(Person.__doc__)     
+
+ object:-
+ ---------
+
+class Person:
+    "This is a my class"
+    age = 10
+
+    def greet(self):
+        print('Hello')
+
+
+mem = Person()
+
+print(Person.greet)
+
+print(mem.greet)
+
+mem.greet()
+
+  
